@@ -2,11 +2,10 @@
   <div class="container">
     <nav>
         <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'https://github.com/Memory-Yuan' do icon('github fa-2x') end %></li>
-            <li><%= link_to '#' do icon('facebook-square fa-2x') end %></li>
-            <li><%= link_to '#' do icon('envelope fa-2x') end %></li>
+            <li><%= link_to 'https://github.com/Memory-Yuan', target: "_blank" do icon('github fa-2x') end %></li>
+            <li><%= link_to 'https://www.facebook.com/MemoryYuan', target: "_blank" do icon('facebook-square fa-2x') end %></li>
+            <li><%= mail_to 'memory78078@gmail.com' do icon('envelope fa-2x') end %></li>
         </ul>
     </nav>
   </div>
-    
 </footer>

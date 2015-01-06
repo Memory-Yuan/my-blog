@@ -12,7 +12,8 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li <%= is_active(root_path) %>><%= link_to root_path do icon('home', 'Home') end %></li>
-                <li><%= link_to "#" do icon('file-text', 'About me') end %></li>
+                <li <%= is_active(about_me_path) %>><%= link_to about_me_path do icon('file-text', 'About me') end %></li>
+                <li><%= link_to "#" do icon('comments','Comment') end %></li>
                 <li><%= link_to "#" do icon('archive','Archive') end %></li>
                 
                 <li class="dropdown">

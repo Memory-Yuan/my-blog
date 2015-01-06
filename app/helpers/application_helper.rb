@@ -9,7 +9,13 @@ module ApplicationHelper
         if title.empty?
             @page_title = "Memory's Blog"
         else
-            @page_title = "Riddle | #{title}"
+            @page_title = "#{title} | Memory's Blog"
         end
+    end
+
+    def gravatar_for(email)
+        gravatar_id = Digest::MD5::hexdigest(email)
+        gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+        image_tag(gravatar_url, class: "gravatar")
     end
 end
