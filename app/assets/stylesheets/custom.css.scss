@@ -23,9 +23,9 @@ body {
 
 footer {
     a{
-        color: $gray;
+        //color: $gray;
         &:hover{  /* &代表: footer a:hover */
-            color: $gray-darker;
+            //color: $gray-darker;
         }
     }
 }
@@ -37,3 +37,11 @@ footer {
 .ovf-auto{
     overflow: auto;
 }
+
+.width100pa{
+    width: 100%;
+}
+.checkarea{
+    border: 1px solid #000;
+}
+
