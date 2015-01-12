@@ -26,13 +26,16 @@
             text-decoration: none;
         }
     }
+    .article-content{
+        margin-bottom: 20px;
+    }
+    hr{
+        border-top: 3px solid #eeeeee;
+    }
+    word-break: break-all;
 }
 
-.timestamp {
-	color: #AAAAAA;
-	text-align: right;
-}
-
-.commit-cell{
-	
+.article-form{
+    width: 60%;
+    margin: 0 auto;
 }

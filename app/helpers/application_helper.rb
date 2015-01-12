@@ -13,9 +13,10 @@ module ApplicationHelper
         end
     end
 
-    def gravatar_for(email)
+    def gravatar_for(email = "example@example.com", size = "")
         gravatar_id = Digest::MD5::hexdigest(email)
         gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-        image_tag(gravatar_url, class: "gravatar")
+        image_tag(gravatar_url, size: size, class: "gravatar")
     end
+
 end

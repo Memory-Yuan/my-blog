@@ -34,6 +34,10 @@ footer {
     text-align: center;
 }
 
+.textright{
+    text-align: right; 
+}
+
 .ovf-auto{
     overflow: auto;
 }
@@ -45,3 +49,24 @@ footer {
     border: 1px solid #000;
 }
 
+.commonlist{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.timestamp {
+    color: #AAAAAA;
+}
+
+#error_explanation {
+    color: #f00;
+    ul {
+        list-style: none;
+    }
+}
+
+.field_with_errors {
+/*    @extend .control-group;*/
+    @extend .has-error;
+}

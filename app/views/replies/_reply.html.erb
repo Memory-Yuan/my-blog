@@ -1,0 +1,19 @@
+<li>
+    <section>
+        <aside class="pull-right">
+            <%= button_to 'Destroy', {controller: "replies", action: "destroy", id: reply.id, article_id: article.id}, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs", remote: true %>
+        </aside>
+        <h4>
+            <% if reply.website.empty? %>
+                <%= reply.name %>
+            <% else %>
+                <%= link_to reply.name, reply.website %>
+            <% end %> 
+        </h4>
+        <%= gravatar_for reply.email, "40" %>
+        <p class="timestamp">
+            Posted <%= time_ago_in_words(reply.created_at) %> ago.
+        </p>
+        <p><%= reply.content%></p>
+    </section>
+</li>

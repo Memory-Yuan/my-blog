@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'articles#index'
-  resources :articles
   match '/about_me',   to: 'static_pages#about_me',   via: 'get'
+  resources :articles
+  resources :replies
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

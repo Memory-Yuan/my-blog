@@ -9,12 +9,27 @@
             <h4>近期文章</h4>
             <ul>
                 <% @articles_recent.each do |article_rct| %>
-                    <li><%= link_to article_rct.title, article_rct %></li>
+                    <li><%= link_to truncate(article_rct.title), article_rct %></li>
                 <% end %>
             </ul>
         </section>
-        <div>近期迴響</div>
-        <div>類別</div>
+        <section>
+            <h4>近期迴響</h4>
+            <ul>
+                <% @replies_recent.each do |reply_rct| %>
+                    <li>
+                    <%= reply_rct.name %> at 
+                    <%= link_to truncate(reply_rct.article.title), reply_rct.article %>
+                    </li>
+                <% end %>
+            </ul>
+        </section>
+        <section>
+            <h4>類別</h4>
+            <ul>
+                <li>...</li>
+            </ul>
+        </section>
     </aside>
 </div>
 

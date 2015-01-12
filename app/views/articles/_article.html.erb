@@ -4,12 +4,12 @@
             <%= link_to 'Edit', edit_article_path(article), class: "btn btn-default btn-xs" %>
             <%= button_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %>
         </span>
-        <span class="label label-warning">commit: 0</span>
+        <span class="label label-warning">reply: <%= article.replies.count %></span>
         <span class="label label-info">read: <%= article.read %></span>
     </aside>
     <header>
         <h2>
-            <% if params[:action] == 'show' %>
+            <% if controller.action_name == 'show' %>
                 <%= article.title %>
             <% else %>
                 <%= link_to article.title, article %>
@@ -19,12 +19,12 @@
             Posted <%= time_ago_in_words(article.created_at) %> ago.
         </p>
     </header>
-    <p><%= article.content %></p>
-    <% if params[:action] == 'show' %>
+    <p class="article-content"><%= article.content %></p>
+    <% if controller.action_name == 'show' %>
         <footer>
-            <section>
-                
-            </section>
+            <hr>
+            <div>reply: <%= article.replies.count %></div>
+            <%= render 'replies/reply_block', article: article %>
         </footer>
     <% end %>
     

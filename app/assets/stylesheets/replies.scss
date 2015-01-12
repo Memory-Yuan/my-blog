@@ -1,0 +1,31 @@
+// Place all the styles related to the replies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.reply-cell{
+	li{
+        //overflow: auto;
+        margin-bottom: 20px;
+        padding-left: 50px;
+        position: relative;
+        border-top: 1px solid #eeeeee;
+/*         &:last-child {
+            border-bottom: 1px solid #eeeeee;
+        } */
+        min-height: 45px;
+    }
+    img{
+        position: absolute;
+        top: 10px;
+        left: 0;
+    }
+    .timestamp{
+        font-size: 10px;
+    }
+    .reply-form{
+        form{
+            margin-top: 10px;
+        }
+        border-bottom: 1px solid #eeeeee;
+    }
+}
