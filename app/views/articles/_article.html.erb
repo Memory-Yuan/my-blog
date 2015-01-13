@@ -8,12 +8,9 @@
         <span class="label label-info">read: <%= article.read %></span>
     </aside>
     <header>
-        <h2>
-            <% if controller.action_name == 'show' %>
-                <%= article.title %>
-            <% else %>
-                <%= link_to article.title, article %>
-            <% end %>
+        <h2><%= 
+            link_to_unless( controller.action_name == 'show', article.title, article ) do article.title end
+            %>
         </h2>
         <p class="timestamp">
             Posted <%= time_ago_in_words(article.created_at) %> ago.

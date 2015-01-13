@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  root 'articles#index'
-  match '/about_me',   to: 'static_pages#about_me',   via: 'get'
-  resources :articles
-  resources :replies
+    root 'articles#index'
+    match '/about_me',   to: 'static_pages#about_me',   via: 'get'
+    resources :articles do
+        collection do
+            get :search
+        end
+    end
+
+    resources :replies
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

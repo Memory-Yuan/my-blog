@@ -9,11 +9,11 @@ class RepliesController < ApplicationController
 		respond_to do |format|
 			if @reply.save
 				save_guest
-		        flash[:success] = 'Reply was successfully created.'
+		        # flash[:success] = 'Reply was successfully created.'
 		        format.html { redirect_to @article }
 		        format.js
 			else
-				flash[:danger] = 'Create reply failed.'
+				# flash[:danger] = 'Create reply failed.'
 				format.html { redirect_to @article }
 			end
 		end

@@ -1,0 +1,31 @@
+<div class="ovf-auto">
+    <%= form_tag search_articles_path, method: :get, class: "form-inline" do %>
+        <%= search_field_tag "keyword", nil, class: "form-control", placeholder: "Enter keyword here" %>
+        <%= button_tag icon('search'), type: "submit", class: "btn btn-default" %>
+    <% end %>
+</div>
+<section>
+    <h4>近期文章</h4>
+    <ul>
+        <% @articles_recent.each do |article_rct| %>
+            <li><%= link_to truncate(article_rct.title), article_rct %></li>
+        <% end %>
+    </ul>
+</section>
+<section>
+    <h4>近期迴響</h4>
+    <ul>
+        <% @replies_recent.each do |reply_rct| %>
+            <li>
+            <%= reply_rct.name %> at 
+            <%= link_to truncate(reply_rct.article.title), reply_rct.article %>
+            </li>
+        <% end %>
+    </ul>
+</section>
+<section>
+    <h4>類別</h4>
+    <ul>
+        <li>...</li>
+    </ul>
+</section>

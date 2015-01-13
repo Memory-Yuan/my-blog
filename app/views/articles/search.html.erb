@@ -1,0 +1,14 @@
+<% set_title("Search") %>
+<div class="ovf-auto">
+	<div class="search-msg">
+		Search: <%= "\"#{params[:keyword]}\" | "%>
+		result: <%= pluralize(@articles.count, 'artilce') %>
+	</div>
+	<div class="col-xs-9">
+		<%= render @articles %>
+		<%= will_paginate %>
+	</div>
+	<div class="col-xs-3">
+		<%= render 'shared/sidebar' %>
+	</div>
+</div>

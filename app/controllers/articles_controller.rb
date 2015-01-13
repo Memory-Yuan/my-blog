@@ -1,13 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_sidebar_data, only: [:index, :show, :search]
   #before_action :check_admin, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5).order('created_at DESC')
-    @articles_recent = Article.limit(10).order('created_at DESC')
-    @replies_recent = Reply.limit(10).order('created_at DESC')
   end
 
   # GET /articles/1
@@ -67,6 +66,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def search
+    @articles = Article.where([ "title like ? or content like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ]).paginate(page: params[:page], per_page: 5).order('created_at DESC')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -76,5 +79,10 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :content)
+    end
+
+    def set_sidebar_data
+      @articles_recent = Article.limit(10).order('created_at DESC')
+      @replies_recent = Reply.limit(10).order('created_at DESC')
     end
 end
