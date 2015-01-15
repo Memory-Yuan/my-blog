@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+    
     root 'articles#index'
     match '/about_me',   to: 'static_pages#about_me',   via: 'get'
+    match '/archive',    to: 'archives#index',          via: 'get'
     resources :articles do
         collection do
             get :search
