@@ -32,4 +32,8 @@ module RepliesHelper
 			Reply.new()
 		end
 	end
+
+	def is_show_replies
+		controller_name == 'articles' and action_name == 'show'
+	end
 end

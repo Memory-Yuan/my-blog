@@ -19,4 +19,10 @@ module ApplicationHelper
         image_tag(gravatar_url, size: size, class: "gravatar")
     end
 
+    def set_sidebar_data
+        @articles_recent = Article.limit(10).order('created_at DESC')
+        @replies_recent = Reply.limit(10).order('created_at DESC')
+        @tags_all = Tag.all
+    end
+
 end

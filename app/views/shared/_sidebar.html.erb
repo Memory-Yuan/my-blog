@@ -1,3 +1,4 @@
+<% set_sidebar_data %>
 <div class="ovf-auto">
     <%= form_tag search_articles_path, method: :get, class: "form-inline" do %>
         <%= search_field_tag "keyword", nil, class: "form-control", placeholder: "Enter keyword here" %>
@@ -26,6 +27,8 @@
 <section>
     <h4>類別</h4>
     <ul>
-        <li>...</li>
+        <% @tags_all.each do |tag| %>
+            <li><%= link_to "#{tag.name} (#{tag.articles.count})", tag %></li>
+        <% end %>
     </ul>
 </section>

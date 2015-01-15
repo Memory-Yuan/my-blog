@@ -1,0 +1,14 @@
+<p><%= label_tag nil, @tag.name, class: "label label-primary" %></p>
+
+<div class="ovf-auto">
+	<div class="col-xs-9">
+		<%= render @tag.articles %>
+	</div>
+	<div class="col-xs-3">
+		<%= render 'shared/sidebar' %>
+	</div>
+</div>
+
+
+<%= link_to 'Edit', edit_tag_path(@tag) %> |
+<%= link_to 'Back', tags_path %>

@@ -1,0 +1,12 @@
+<section class="tags-cell">
+    <h5>
+        <%= icon('tags', 'Tags') %>
+        <%= link_to icon('pencil'), article_article_tagships_path(article), class: "btn btn-default btn-xs", remote: true, id: "edit-tags-btn", 'data-toggle' => "modal", 'data-target' => "#edit-tags-modal", 'data-article-id' => article.id %>
+    </h5>
+    <p class="tags-list">
+        <% article.tags.each do |tag| %>
+            <%= link_to icon('tag', tag.name), tag, class: "label label-primary" %>
+        <% end %>
+    </p>
+    <%= render 'article_tagships/edit_modal' %>
+</section>

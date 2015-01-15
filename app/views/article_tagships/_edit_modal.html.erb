@@ -1,0 +1,19 @@
+<div class="modal fade" id="edit-tags-modal" tabindex="-1" role="dialog" aria-labelledby="rod-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <%= button_tag "×", type: "button", class: "close", 'data-dismiss' => "modal" %>
+                <h4 class="modal-title">
+                    <%= icon('pencil', '', style: "color:#f79a00") %> 編輯Tags
+                </h4>
+            </div>
+            <div class="modal-body">
+                <%= icon('spinner fa-spin fa-3x loading-icon') %>
+                <div class="tags-place"></div>
+            </div>
+            <div class="modal-footer">
+                <%= button_tag "關閉", type: "button", class: "btn btn-default", 'data-dismiss' => "modal" %>
+            </div>
+        </div>
+    </div>
+</div>

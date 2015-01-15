@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109040259) do
+ActiveRecord::Schema.define(version: 20150113063625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_tagships", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "article_tagships", ["article_id"], name: "index_article_tagships_on_article_id", using: :btree
+  add_index "article_tagships", ["tag_id"], name: "index_article_tagships_on_tag_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -36,5 +46,13 @@ ActiveRecord::Schema.define(version: 20150109040259) do
 
   add_index "replies", ["article_id"], name: "index_replies_on_article_id", using: :btree
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "article_tagships", "articles"
+  add_foreign_key "article_tagships", "tags"
   add_foreign_key "replies", "articles"
 end

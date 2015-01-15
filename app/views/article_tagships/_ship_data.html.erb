@@ -1,0 +1,31 @@
+<section>
+	<h5><%= icon('tags', 'Tags of this article')%></h5>
+	<p>
+		<% article.tags.each do |tag| %>
+			<span class="label label-primary">
+				<%= icon('tag', tag.name) %>
+				<%= link_to "×", article_article_tagship_path(article, article.article_tagships.find_by(tag_id: tag.id)), method: :delete, class: "btn_close", remote: true %>
+			</span>
+		<% end %>
+	</p>
+</section>
+<hr/>
+<section>
+	<h5><%= icon('tags', 'Other tags')%></h5>
+	<p>
+		<% tags_usent.each do |tag_usent| %>
+			<%= form_for [article, article.article_tagships.build(article_id: article.id, tag_id: tag_usent.id)], remote: true do |f| %>
+				<%= f.hidden_field :tag_id %>
+				<%#= f.submit tag_usent.name, class: "btn btn-xs btn-default" %>
+				<%= button_tag icon('tag', tag_usent.name), type: "submit", class: "btn btn-xs btn-default" %>
+			<% end %>
+		<% end %>
+	</p>
+	<aside>
+		<%= form_for Tag.new, remote: true, html: { class: "form-inline"} do |f| %>
+		    <%= f.text_field :name, class: "form-control" %>
+		    <%= button_tag icon('plus'), type: "submit", class: "btn btn-default" %>
+		    <%#= f.submit "create", class: "btn btn-large btn-default" %>
+		<% end %>
+	</aside>
+</section>

@@ -1,0 +1,5 @@
+<%= form_for(@tag, html: { class: "form-inline"} ) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.submit "create", class: "btn btn-large btn-default" %>
+<% end %>

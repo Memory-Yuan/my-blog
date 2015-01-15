@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :set_sidebar_data, only: [:index, :show, :search]
+  #before_action :set_sidebar_data, only: [:index, :show, :search]
   #before_action :check_admin, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /articles
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.where([ "title like ? or content like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ]).paginate(page: params[:page], per_page: 5).order('created_at DESC')
+    @articles = Article.where( "title like :keyword or content like :keyword", keyword: "%#{params[:keyword]}%" ).paginate(page: params[:page], per_page: 5).order('created_at DESC')
   end
 
   private
@@ -81,8 +81,4 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :content)
     end
 
-    def set_sidebar_data
-      @articles_recent = Article.limit(10).order('created_at DESC')
-      @replies_recent = Reply.limit(10).order('created_at DESC')
-    end
 end

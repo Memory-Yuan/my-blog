@@ -4,12 +4,12 @@
             <%= link_to 'Edit', edit_article_path(article), class: "btn btn-default btn-xs" %>
             <%= button_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %>
         </span>
-        <span class="label label-warning">reply: <%= article.replies.count %></span>
-        <span class="label label-info">read: <%= article.read %></span>
+        <%= label_tag nil, "reply: #{article.replies.count}", class: "label label-warning" %>
+        <%= label_tag nil, "read: #{article.read}", class: "label label-info" %>
     </aside>
     <header>
         <h2><%= 
-            link_to_unless( controller.action_name == 'show', article.title, article ) do article.title end
+            link_to_unless( is_show_replies, article.title, article ) do article.title end
             %>
         </h2>
         <p class="timestamp">
@@ -17,11 +17,12 @@
         </p>
     </header>
     <p class="article-content"><%= article.content %></p>
-    <% if controller.action_name == 'show' %>
+    <% if is_show_replies %>
         <footer>
+            <%= render 'tags/tags_block', article: article %>
             <hr>
             <div>reply: <%= article.replies.count %></div>
-            <%= render 'replies/reply_block', article: article %>
+            <%= render 'replies/replies_block', article: article %>
         </footer>
     <% end %>
     

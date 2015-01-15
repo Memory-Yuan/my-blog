@@ -12,6 +12,12 @@ body {
     padding-bottom: 70px;
 }
 
+a{
+    &:hover{
+        text-decoration: none;
+    }
+}
+
 #logo {
     font-size: 2.0em;
     text-transform: uppercase;
@@ -19,15 +25,6 @@ body {
     padding-top: 12px;
     font-weight: bold;
     line-height: 1;
-}
-
-footer {
-    a{
-        //color: $gray;
-        &:hover{  /* &代表: footer a:hover */
-            //color: $gray-darker;
-        }
-    }
 }
 
 .center {
@@ -73,4 +70,20 @@ footer {
 
 .search-msg {
     padding: 15px;
+}
+
+.pst-relative{
+    position: relative;
+}
+
+.btn_close{
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.3;
+    &:hover{
+        opacity: 1;
+    }
 }
